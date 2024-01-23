@@ -21,21 +21,21 @@ This project is developed using Python 3 and the PyTorch library. All dependenci
 Setting up Easy-MoE is straightforward. Follow the instructions below to get started:
 
 # Clone the Easy-MoE repository
-'''cmd
+```bash
 git clone https://github.com/Tech-ware/Easy-MoE.git
 cd Easy-MoE
-'''
+```
 
 # (Optional) Create and activate a virtual environment
-'''python
+```bash
 python -m venv venv
 source venv/bin/activate  # On Windows use venv\Scripts\activate
-'''
+```
 
 # Install the required dependencies
-'''cmd
+```bash
 pip install -r requirements.txt
-'''
+```
 
 ## Usage
 
@@ -43,7 +43,9 @@ Ensure that you have a dataset formatted in JSONL for training with “input” 
 
 To train the model, run:
 
+```bash
 python Easy-MoE.py
+```
 
 
 For interactive text generation with the trained model, use the following commands:
@@ -75,6 +77,12 @@ The project includes the following key files:
 Contributions are what make the open-source community an amazing place to learn, inspire, and create. Any contributions you make to Easy-MoE are greatly appreciated.
 
 If you have suggestions for improvements, please fork the repo and create a pull request. You can also simply open an issue with the tag “enhancement.”
+
+Don’t forget to give the project a star! Thank you again for your support!
+
+## Licensing
+
+This project is licensed under the MIT License - see the LICENSE file for details.
 
 Don’t forget to give the project a star! Thank you again for your support!
 
