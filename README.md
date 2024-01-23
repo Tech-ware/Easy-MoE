@@ -60,7 +60,7 @@ interactive_text_generation(moe_transformer_model, dataset)
 
 The dataset expected by Easy-MoE should be in JSONL format, as shown below:
 
-{“question”: “What’s your name?”, “answer”: “I’m MoE Transformer.”}
+{“question”: “What’s your name?”, “answer”: “I’m MoE Transformer.”}\n
 {“question”: “What can you do?”, “answer”: “I generate text and provide answers to inquiries.”}
 
 
