@@ -21,16 +21,21 @@ This project is developed using Python 3 and the PyTorch library. All dependenci
 Setting up Easy-MoE is straightforward. Follow the instructions below to get started:
 
 # Clone the Easy-MoE repository
+'''cmd
 git clone https://github.com/Tech-ware/Easy-MoE.git
 cd Easy-MoE
+'''
 
 # (Optional) Create and activate a virtual environment
+'''python
 python -m venv venv
 source venv/bin/activate  # On Windows use venv\Scripts\activate
+'''
 
 # Install the required dependencies
+'''cmd
 pip install -r requirements.txt
-
+'''
 
 ## Usage
 
