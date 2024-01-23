@@ -70,7 +70,7 @@ The project includes the following key files:
 
 - Easy-MoE.py: Contains the main training and inference functions for the MoE model.
 - requirements.txt: Lists all Python dependencies required by the project.
-- data/: Directory where the dataset files are to be placed for training.
+- train.jsonl: file where the dataset is saved.
 
 ## Contributing
 
