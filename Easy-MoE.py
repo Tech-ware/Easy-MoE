@@ -218,7 +218,7 @@ gating_network = GatingNetwork(
 )
 
 # Dataset :
-path_to_dataset = "data/train.jsonl"
+path_to_dataset = "train.jsonl"
 seq_len = 24
 dataset = QAJsonlDataset(path_to_dataset, seq_len)
 data_loader = DataLoader(dataset, batch_size=seq_len, shuffle=True, collate_fn=collate_fn, pin_memory=True)
