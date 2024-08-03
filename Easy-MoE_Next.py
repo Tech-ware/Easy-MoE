@@ -93,9 +93,13 @@ class MoETransformerModel(nn.Module):
         self.moe = moe
         self.dropout = nn.Dropout(p=0.125)
 
-    def forward(self, x):
+    def forward(self, x, teacher_inputs=None):  # Updated forward method
         embedded = self.dropout(self.embedding(x))
-        return self.moe(embedded)
+        
+        if teacher_inputs is not None: # Using teacher forcing
+            return self.moe(embedded) 
+        else:
+            return self.moe(embedded) 
 
 # ---------- Dataset Definitions ----------
 class QAJsonlDataset(Dataset):
@@ -166,20 +170,20 @@ def train_model(model, criterion, optimizer, scheduler, num_epochs, train_loader
             inputs, targets = inputs.to(device), targets.to(device)
             optimizer.zero_grad()
 
-            # Teacher Forcing
             use_teacher_forcing = True if torch.rand(1).item() < teacher_forcing_ratio else False
 
             if use_teacher_forcing:
-                # Prepare decoder input with teacher forcing
                 teacher_inputs = torch.cat((torch.tensor([[2]] * inputs.size(0)).to(device), targets[:, :-1]), dim=1) 
                 predictions = model(inputs, teacher_inputs) 
             else:
                 predictions = model(inputs) 
 
-            mask = (targets != 0) 
+            mask = (targets != 0)  
             predictions = predictions.view(-1, predictions.size(-1))
             targets = targets.view(-1)
-            loss = criterion(predictions, targets, mask=mask)
+
+            # Apply mask directly to the loss calculation
+            loss = criterion(predictions[mask], targets[mask])  # Corrected line  # Corrected line 
 
             loss.backward()
             torch.nn.utils.clip_grad_norm_(model.parameters(), max_norm=1.0)
